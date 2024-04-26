@@ -32,24 +32,24 @@ class PlantReminder():
 
     
     def send_text(self) -> None:
-        print({ 
-            'phone': self.target, 
-            'message': self.get_message(), 
-            'key': 'textbelt',
-        })
-
-        # resp = requests.post('https://textbelt.com/text', {
-        # 'phone': self.target,
-        # 'message': self.get_message(),
-        # 'key': 'textbelt',
+        # print({ 
+        #     'phone': self.target, 
+        #     'message': self.get_message(), 
+        #     'key': 'textbelt',
         # })
-        # print(resp.json())
+
+        resp = requests.post('https://textbelt.com/text', {
+        'phone': self.target,
+        'message': self.get_message(),
+        'key': 'textbelt',
+        })
+        print(resp.json())
 
 INITIAL_PLANTS = [
     Plant(PlantType.AIR, 'the little air plant fella', pot_size=Pot.NONE),
     Plant(PlantType.SUCCULENT, 'Lenny the succulent', pot_size=Pot.SMALL),
     Plant(PlantType.DWARF_UMBRELLA, 'the leafy boy', Pot.MEDIUM),
-    Plant(PlantType.BROMELIAD, 'the orange flower', Pot.MEDIUM)
+    # Plant(PlantType.BROMELIAD, 'the orange flower', Pot.MEDIUM)
 ]
 
 def run() -> None:
